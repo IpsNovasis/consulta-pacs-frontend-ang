@@ -1,112 +1,588 @@
 <app-header></app-header>
 <div class="container-fluides" style="background-color:#f3efef" class="clear_fix">
     <div class="row">
-        <!---->
+
         <div class="col-md-2" style="background-color: #fff"></div>
         <div class="col-md-8 border" style="background-color:#fff">
-
-            <div class="card-header text-dark border">
-                <p class="font-weight-bold">Información Beneficiario</p>
-
-                <div class="row">
-                    <div class="col-md-2 text-dark small font-weight-bold">Rut </div>
-                    <div class="col-md-3 small font-weight-bold"> Nombre </div>
-                    <div class="col-md-3 small font-weight-bold"> Fecha Nacimiento </div>
-                    <div class="col-md-2 small font-weight-bold"> Edad </div>
-                    <div class="col-md-2 small font-weight-bold"> Género </div>
-
-
-                    <div class="col-md-2 small">{{rutBeneficirario}}</div>
-                    <div class="col-md-3 small"> {{nombresBeneficirario}}</div>
-                    <div class="col-md-3 small">{{beneficiario.persona.dFechaNacimiento}}</div>
-                    <div class="col-md-2 small ">{{beneficiario.persona.edad}} </div>
-                    <div class="col-md-2 small">{{sexoBeneficirario}}</div>
-                </div>
-            </div>
-
-
-            <div class="card-header text-dark border">
-                <p class="font-weight-bold">Información Previsional</p>
-
-                <div class="row">
-                    <div class="col-md-2 small font-weight-bold">Fecha Pensión</div>
-                    <div class="col-md-2 small font-weight-bold"> Meses Cotizados </div>
-                    <div class="col-md-2 small font-weight-bold"> Bonos Dipreca</div>
-                    <div class="col-md-2 small font-weight-bold"> Bono Capredena</div>
-                    <div class="col-md-2 small font-weight-bold"> Cotizaciones</div>
-                    <div class="col-md-2 small font-weight-bold"> Monto Ingreso UF </div>
-
-                    <div class="col-md-2 text-left small">{{pension.pensionado.dFechaPension}}</div>
-                    <div class="col-md-2 text-center small">{{pension.pensionado.iNumeroMesesCotizados}}</div>
-                    <div class="col-md-2 text-center small">{{pension.pensionado.cBonoReconoceDIPRECA}}</div>
-                    <div class="col-md-2 text-center small">{{pension.pensionado.cBonoReconoceCAPREDENA}}</div>
-                    <div class="col-md-2 text-center small">{{pension.pensionado.iNumeroCotizacionesIPS}}</div>
-                    <div class="col-md-2 text-center small">{{pension.pensionado.nMontoIngreso}}</div>
-
-                </div>
-            </div>
-
-            <div class="card-header text-dark border">
-                <p class="font-weight-bold">Beneficios</p>
-
-                <div class="row">
-                    <div class="col-md-4 text-dark text-center small font-weight-bold">Beneficio Monto Fijo PACS</div>
-                    <div class="col-md-4 text-center small font-weight-bold">Beneficio por Años Cotizados</div>
-                    <div class="col-md-4 text-center small font-weight-bold">¿Tiene Beneficio PACS?</div>
-                    <div class="col-md-4 text-center small">{{calificaBeneficioFijo}}</div>
-                    <div class="col-md-4 text-center small">{{calificaBeneficioVariable}}</div>
-                    <div class="col-md-4 text-center small">{{calificaTieneBeneficioPacs}}</div>
-                </div>
-            </div>
             <div class="card-header text-dark">
                 <h5 class="text-center">Resultado de Elegibilidad</h5>
+                <br>
+                <div *ngIf="beneficiario.persona.iRUN == '11111111'">
+                    <p class="text-justify text-dark"> <span class="text-dark font-weight-bold">Estimado(a),
+                            {{nombresBeneficirario}}.</span>
+                    <p class="text-justify">Según información disponible a la fecha en este Instituto, usted cumpliría
+                        con los requisitos para acceder al Beneficio Monto Fijo del Programa de Ahorro Colectivo
+                        Solidario (PACS).</p>
+                    <p class="text-justify">Según información disponible a la fecha en este Instituto, usted cumpliría
+                        con los requisitos para acceder al Beneficio por Año Cotizado del Programa de Ahorro Colectivo
+                        Solidario (PACS).</p>
+                    <p class="text-justify">Si al verificar la información usted sigue cumpliendo con los requisitos, se
+                        concedería el beneficio y se reflejaría automáticamente en su próxima liquidación de pago de
+                        pensión, por lo tanto no necesita realizar ningún trámite. En 30 días más puede consultar por el
+                        estado de su solicitud, ingresando a www.xxx.cl.</p>
+
+                    <!--          <div class="col-md-12  text-justify text-dark">De acuerdo a los antecedentes evaluados usted presenta tramites pendientes y una vez resuletos sera nuevamente evaluado</div> -->
+                    <!--           <div class="col-md-12  text-justify text-dark">De acuerdo a los antecedentes evaluados usted No es elegible para el Beneficio PACS</div> -->
+                </div>
+                <div *ngIf="beneficiario.persona.iRUN == '33333333'">
+                    <p class="text-justify text-dark"> <span class="text-dark font-weight-bold">Estimado(a),
+                            {{nombresBeneficirario}}.</span>
+                    <p class="text-justify">Según información disponible a la fecha en este Instituto, usted NO
+                        cumpliría
+                        con los requisitos para acceder al Beneficio Monto Fijo del Programa de Ahorro Colectivo
+                        Solidario (PACS).</p>
+                    <p class="text-justify">Según información disponible a la fecha en este Instituto, usted NO
+                        cumpliría
+                        con los requisitos para acceder al Beneficio por Año Cotizado del Programa de Ahorro Colectivo
+                        Solidario (PACS).</p>
+                    <!--     <p class="text-justify">Si al verificar la información usted sigue cumpliendo con los requisitos, se
+                        concedería el beneficio y se reflejaría automáticamente en su próxima liquidación de pago de
+                        pensión, por lo tanto no necesita realizar ningún trámite. En 30 días más puede consultar por el
+                        estado de su solicitud, ingresando a www.xxx.cl.</p>
+
+                              <div class="col-md-12  text-justify text-dark">De acuerdo a los antecedentes evaluados usted presenta tramites pendientes y una vez resuletos sera nuevamente evaluado</div> -->
+                    <!--           <div class="col-md-12  text-justify text-dark">De acuerdo a los antecedentes evaluados usted No es elegible para el Beneficio PACS</div> -->
+                </div>
             </div>
+            <div>
+                <!--     <div class="card-header text-center">
+                    <h6>Resultados de la Evaluación</h6>
+                </div> -->
+                <!--      <div class="card-header text-dark text-left">
+                    <h6>Beneficio Monto Fijo PACS</h6>
+                </div> -->
+                <div class="card-header   text-center" *ngIf="beneficiario.persona.iRUN == '33333333'">
+                    <h6>Antecedentes Evaluados</h6>
+                </div>
+                <br>
+                <div class="table-responsive" *ngIf="beneficiario.persona.iRUN == '33333333'">
+                    <table class="table">
+                        <thead>
+                            <th class="col-md-4   text-center   ">¿Cumple con Edad Mínima?</th>
+                            <th class="col-md-4   text-center  ">¿Es Pensionado DFL 3500?</th>
+                            <th class="col-md-4   text-center   ">¿Es Pensionado Antes de la Ley?
+                            </th>
+
+                        </thead>
+                        <tr>
+                            <td class="col-md-2    text-center">Cumple</td>
+                            <td class="col-md-2    text-center">Cumple</td>
+                            <td class="col-md-2    text-center">NO Cumple</td>
+                        </tr>
+                    </table>
+                    <table class="table">
+                        <thead>
+                            <th class="col-md-4   text-center   ">¿Pensión menor a 25 U.F.</th>
+                            <th class="col-md-4   text-center   ">¿Tiene mas de 190 Cotizaciones
+                            </th>
+                            <th class="col-md-4   text-center   ">¿Tiene Beneficio PACS Vigentes?
+                            </th>
+                        </thead>
+                        <tr>
+                            <td class="col-md-4    text-center">NO Cumple</td>
+                            <td class="col-md-4    text-center">Cumple</td>
+                            <td class="col-md-4    text-center">No Tiene</td>
+
+                        </tr>
+                    </table>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="col-md-6     text-center   ">Beneficio Monto Fijo
+                                    PACS</th>
+                                <th class="col-md-6     text-center  ">Beneficio por Años Cotizados
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-md-6 text-center  ">No Cumple Con Condiciones</td>
+                                <td class="col-md-6 text-center  ">NO Cumple Con Condiciones</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div *ngIf="beneficiario.persona.iRUN == '33333333'">
+                    <div class="card-header   text-center">
+                        <h6>Detalle de la Evaluación</h6>
+                    </div>
+                    <div *ngFor="let item of elegibilidad.body">
+                        <div *ngIf="item.iIDBeneficio == 1">
+                            <ul uk-accordion>
+                                <li class="uk-close">
+                                    <a class="uk-accordion-title  text-center" style="background-color:#fcfafa"
+                                        href="#">
+                                        <p class="mb-0 text-dark text-left">Beneficio Monto Fijo PACS</p>
+                                    </a>
+                                    <div class="uk-accordion-content">
+                                        <p class="text-justify text-dark"><span
+                                                class="text-dark font-weight-bold">{{item.vcCriterioEvaluado}}</span>.
+                                            {{item.vcDetalleMensaje}}</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!--     <div class="card-header text-dark text-left">
+                    <h6>Beneficio por Año Cotizado</h6>
+                </div> -->
+
+                    <div *ngFor="let item of elegibilidad.body">
+                        <div *ngIf="item.iIDBeneficio == 2 ">
+                            <ul uk-accordion>
+                                <li class="uk-close">
+                                    <a class="uk-accordion-title  text-center" style="background-color:#fcfafa"
+                                        href="#">
+                                        <p class="mb-0 text-dark text-left">
+                                            Beneficio por Año Cotizado</p>
+                                    </a>
+                                    <div class="uk-accordion-content">
+                                        <p class="text-justify text-dark"><span
+                                                class="text-dark font-weight-bold">{{item.vcCriterioEvaluado}}</span>.
+                                            {{item.vcDetalleMensaje}}</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
 
-            <div class="card-header text-dark">
-                <h6>Beneficio Monto Fijo PACS</h6>
-            </div>
-
-            <div *ngFor="let item of elegibilidad.body">
-                <div *ngIf="item.iIDBeneficio == 1 ">
                     <ul uk-accordion>
                         <li class="uk-close">
                             <a class="uk-accordion-title  text-center" style="background-color:#fcfafa" href="#">
-                                <p class="mb-0 text-dark ">
-                                    {{item.vcCriterioEvaluado}}</p>
+                                <p class="mb-0 text-dark text-center">
+                                    Antecedentes Adicionales</p>
                             </a>
+
                             <div class="uk-accordion-content">
-                                <p class="text-justify text-dark">{{item.vcDetalleMensaje}}</p>
+                                <div class="card-header text-dark border">
+                                    
+
+                                    <div class="card-header text-dark text-left">
+                                        <h6>Información Beneficiario</h6>
+                                    </div>
+                                    <div class="row">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="col-md-2 text-dark   font-weight-bold">Rut</th>
+                                                        <th class="col-md-4 text-dark   font-weight-bold">Nombre</th>
+                                                        <th class="col-md-2 text-dark    font-weight-bold"> Fecha
+                                                            Nacimiento
+                                                        </th>
+                                                        <th class="col-md-2 text-dark   font-weight-bold"> Edad</th>
+                                                        <th class="col-md-2 text-dark   font-weight-bold"> Género</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="col-md-2  ">{{rutBeneficirario}}</td>
+                                                        <td class="col-md-4  "> {{nombresBeneficirario}}</td>
+                                                        <td class="col-md-2  ">{{fechaNacbeneficiario}}</td>
+                                                        <td class="col-md-2   ">{{edadBeneficiario}}</td>
+                                                        <td class="col-md-2  ">{{sexoBeneficirario}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="card-header text-dark border" *ngIf="cBonoReconoceCAPREDENA == 'S'">
+                                    <div class="card-header text-dark text-left">
+                                        <h6>Capredena</h6>
+                                    </div>
+                                    <div class="row">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="col-md-2  text-center font-weight-bold">Bono de
+                                                            Reconocimiento
+                                                        </th>
+                                                        <th class="col-md-2  text-center font-weight-bold">
+                                                            Cotizaciones
+                                                        </th>
+                                                        <th class="col-md-2  text-center font-weight-bold"> Monto
+                                                            Pension
+                                                            (UF)</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="col-md-2 text-center ">{{cBonoReconoceCAPREDENA}}
+                                                        </td>
+                                                        <td class="col-md-2 text-center ">{{iCotizacionesCAPREDENA}}
+                                                        </td>
+                                                        <td class="col-md-2 text-center ">{{nMontoPensionCAPREDENA}}
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-header text-dark border" *ngIf="cBonoReconoceDIPRECA == 'S'">
+                                    <div class="card-header text-dark text-left">
+                                        <h6>Dipreca</h6>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="col-md-2  text-center font-weight-bold">Bono de
+                                                            Reconocimiento
+                                                        </th>
+                                                        <th class="col-md-2  text-center font-weight-bold">Cotizaciones
+                                                        </th>
+                                                        <th class="col-md-2  text-center font-weight-bold">Monto
+                                                            Pension(UF)</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="col-md-2 text-center ">{{cBonoReconoceDIPRECA}}</td>
+                                                        <td class="col-md-2 text-center ">{{iCotizacionesDIPRECA}}</td>
+                                                        <td class="col-md-2 text-center ">{{nMontoPensionDIPRECA}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-header text-dark border" *ngIf="cBonoReconoceIPS == 'S'">
+                                    <div class="card-header text-dark text-left">
+                                        <h6>IPS</h6>
+                                    </div>
+                                    <div class="row">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="col-md-2  text-center font-weight-bold">Bono de
+                                                            Reconocimiento
+                                                        </th>
+                                                        <th class="col-md-2  text-center font-weight-bold">
+                                                            Cotizaciones
+                                                        </th>
+                                                        <th class="col-md-2  text-center font-weight-bold"> Monto
+                                                            Pension
+                                                            (UF)</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="col-md-2 text-center ">{{cBonoReconoceIPS}}</td>
+                                                        <td class="col-md-2 text-center ">{{iCotizacionesIPS}}</td>
+                                                        <td class="col-md-2 text-center ">{{nMontoPensionIPS}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-header text-dark border">
+                                    <div class="card-header text-dark text-left">
+                                        <h6>Haberes en Pesos</h6>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="col-md-2  text-center font-weight-bold">Pension
+                                                            Mutual
+                                                        </th>
+                                                        <th class="col-md-2  text-center font-weight-bold">Pilar
+                                                            Solidario
+                                                        </th>
+                                                        <th class="col-md-2  text-center font-weight-bold">Subsidio
+                                                            Dependencia
+                                                        </th>
+                                                        <th class="col-md-2  text-center font-weight-bold">Seguro
+                                                            Dependencia</th>
+                                                        <th class="col-md-2  text-center font-weight-bold">Monto TGR
+                                                        </th>
+                                                        <th class="col-md-2  text-center font-weight-bold">Total ($)
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="col-md-2 text-center ">{{nMontoPensionMutual}}</td>
+                                                        <td class="col-md-2 text-center ">{{nMontoPilarSolidario}}</td>
+                                                        <td class="col-md-2 text-center ">{{nMontoSubsidioDependencia}}
+                                                        </td>
+                                                        <td class="col-md-2 text-center ">{{nMontoSeguroDependecia}}
+                                                        </td>
+                                                        <td class="col-md-2 text-center ">{{nMontoTGR}}</td>
+                                                        <td class="col-md-2 text-center ">
+                                                            {{nMontoPensionMutual + nMontoPilarSolidario + nMontoSubsidioDependencia + nMontoSeguroDependecia + nMontoTGR }}
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-header text-dark border">
+                                    <div class="card-header text-dark text-left">
+                                        <h6>DFL 3500</h6>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="col-md-2  text-center font-weight-bold">Cotizaciones
+                                                        </th>
+                                                        <th class="col-md-2  text-center font-weight-bold">Pension Renta
+                                                            Privada
+                                                        </th>
+                                                        <th class="col-md-2  text-center font-weight-bold">Pension Renta
+                                                            Vitalicia
+                                                        </th>
+                                                        <th class="col-md-2  text-center font-weight-bold">Total
+                                                            Pension
+                                                            DFL 3500
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="col-md-2 text-center ">{{iCotizacionesAFP}}</td>
+                                                        <td class="col-md-2 text-center ">{{nMontoPensionPagadaRP}}
+                                                        </td>
+                                                        <td class="col-md-2 text-center ">{{nMontoPensionPegadaRV}}
+                                                        </td>
+                                                        <td class="col-md-2 text-center ">
+                                                            {{nMontoPensionPagadaRP + nMontoPensionPegadaRV}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </li>
                     </ul>
                 </div>
-            </div>
-
-            <div class="card-header text-dark">
-                <h6>Beneficio por Año Cotizado</h6>
-            </div>
-
-            <div *ngFor="let item of elegibilidad.body">
-                <div *ngIf="item.iIDBeneficio == 2 ">
-                    <ul uk-accordion>
-                        <li class="uk-close">
-                            <a class="uk-accordion-title  text-center" style="background-color:#fcfafa" href="#">
-                                <p class="mb-0 text-dark">
-                                    {{item.vcCriterioEvaluado}}</p>
-                            </a>
-                            <div class="uk-accordion-content">
-                                <p class="text-justify text-dark">{{item.vcDetalleMensaje}}</p>
-                            </div>
-                        </li>
-                    </ul>
+                <!--
+                <div class="card-header text-center text-dark">
+                    <button type="button" (click)="setHabilitar()" class="col-md-12 card-header text-dark">
+                        <h6>{{habilitar == true? 'Ocultar Antecedentes de Evaluación': 'Mostrar Antecedentes de Evaluación'}}
+                        </h6>
+                    </button>
                 </div>
+                <div *ngIf="habilitar == true">
+                    <div class="card-header text-center text-dark">
+                        <h6>Antecedentes de evaluación</h6>
+                    </div>
+                    <div class="card-header text-dark border">
+                        <p class="font-weight-bold">Información Beneficiario</p>
+                        <div class="row">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-md-2 text-dark  font-weight-bold">Rut</th>
+                                            <th class="col-md-4 text-dark  font-weight-bold">Nombre</th>
+                                            <th class="col-md-2 text-dark  font-weight-bold"> Fecha Nacimiento
+                                            </th>
+                                            <th class="col-md-2 text-dark  font-weight-bold"> Edad</th>
+                                            <th class="col-md-2 text-dark  font-weight-bold"> Género</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="col-md-2 ">{{rutBeneficirario}}</td>
+                                            <td class="col-md-4 "> {{nombresBeneficirario}}</td>
+                                            <td class="col-md-2 ">{{fechaNacbeneficiario}}</td>
+                                            <td class="col-md-2  ">{{edadBeneficiario}}</td>
+                                            <td class="col-md-2 ">{{sexoBeneficirario}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card-header text-dark border" *ngIf="cBonoReconoceCAPREDENA == 'S'">
+                        <p class="font-weight-bold">Capredena</p>
+                        <div class="row">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-md-2  text-center font-weight-bold">Bono de
+                                                Reconocimiento
+                                            </th>
+                                            <th class="col-md-2  text-center font-weight-bold"> Cotizaciones
+                                            </th>
+                                            <th class="col-md-2  text-center font-weight-bold"> Monto Pension
+                                                (UF)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="col-md-2 text-center ">{{cBonoReconoceCAPREDENA}}</td>
+                                            <td class="col-md-2 text-center ">{{iCotizacionesCAPREDENA}}</td>
+                                            <td class="col-md-2 text-center ">{{nMontoPensionCAPREDENA}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-header text-dark border" *ngIf="cBonoReconoceDIPRECA == 'S'">
+                        <p class="font-weight-bold">Dipreca</p>
+                        <div class="row">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-md-2  text-center font-weight-bold">Bono de
+                                                Reconocimiento
+                                            </th>
+                                            <th class="col-md-2  text-center font-weight-bold">Cotizaciones
+                                            </th>
+                                            <th class="col-md-2  text-center font-weight-bold">Monto
+                                                Pension(UF)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="col-md-2 text-center ">{{cBonoReconoceDIPRECA}}</td>
+                                            <td class="col-md-2 text-center ">{{iCotizacionesDIPRECA}}</td>
+                                            <td class="col-md-2 text-center ">{{nMontoPensionDIPRECA}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-header text-dark border" *ngIf="cBonoReconoceIPS == 'S'">
+                        <p class="font-weight-bold">IPS</p>
+                        <div class="row">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-md-2  text-center font-weight-bold">Bono de
+                                                Reconocimiento
+                                            </th>
+                                            <th class="col-md-2  text-center font-weight-bold"> Cotizaciones
+                                            </th>
+                                            <th class="col-md-2  text-center font-weight-bold"> Monto Pension
+                                                (UF)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="col-md-2 text-center "></td>
+                                            <td class="col-md-2 text-center "></td>
+                                            <td class="col-md-2 text-center "></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-header text-dark border">
+                        <p class="font-weight-bold">Haberes en Pesos</p>
+                        <div class="row">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-md-2  text-center font-weight-bold">Pension Mutual
+                                            </th>
+                                            <th class="col-md-2  text-center font-weight-bold">Pilar Solidario
+                                            </th>
+                                            <th class="col-md-2  text-center font-weight-bold">Subsidio
+                                                Dependencia
+                                            </th>
+                                            <th class="col-md-2  text-center font-weight-bold">Seguro
+                                                Dependencia</th>
+                                            <th class="col-md-2  text-center font-weight-bold">Monto TGR</th>
+                                            <th class="col-md-2  text-center font-weight-bold">Total ($)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="col-md-2 text-center ">{{nMontoPensionMutual}}</td>
+                                            <td class="col-md-2 text-center ">{{nMontoPilarSolidario}}</td>
+                                            <td class="col-md-2 text-center ">{{nMontoSubsidioDependencia}}
+                                            </td>
+                                            <td class="col-md-2 text-center ">{{nMontoSeguroDependecia}}</td>
+                                            <td class="col-md-2 text-center ">{{nMontoTGR}}</td>
+                                            <td class="col-md-2 text-center ">
+                                                {{nMontoPensionMutual + nMontoPilarSolidario + nMontoSubsidioDependencia + nMontoSeguroDependecia + nMontoTGR }}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-header text-dark border">
+                        <p class="font-weight-bold">DFL 3500</p>
+                        <div class="row">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-md-2  text-center font-weight-bold">Cotizaciones
+                                            </th>
+                                            <th class="col-md-2  text-center font-weight-bold">Pension RP</th>
+                                            <th class="col-md-2  text-center font-weight-bold">Pension RV</th>
+                                            <th class="col-md-2  text-center font-weight-bold">Total Pension
+                                                DFL 3500
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="col-md-2 text-center ">{{iCotizacionesAFP}}</td>
+                                            <td class="col-md-2 text-center ">{{nMontoPensionPagadaRP}}</td>
+                                            <td class="col-md-2 text-center ">{{nMontoPensionPegadaRV}}</td>
+                                            <td class="col-md-2 text-center ">
+                                                {{nMontoPensionPagadaRP + nMontoPensionPegadaRV}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>  
+            -->
+
+
+                <div class="col-md-2" style="background-color:#ddf126"></div>
+                <br>
+                <br>
+                <br>
+
             </div>
-
-            <div class="col-md-2" style="background-color:#ddf126"></div>
-
-
         </div>
+        <app-footer></app-footer>
     </div>
-</div>
-<app-footer></app-footer>
+   

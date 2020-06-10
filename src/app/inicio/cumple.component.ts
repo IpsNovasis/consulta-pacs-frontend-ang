@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Toaster, ToastType } from 'ngx-toast-notifications';
+ 
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { ApiService } from '../servicio/api.service';
@@ -8,7 +8,7 @@ import { Persona } from '../models/persona';
 import { Pension } from '../models/pension';
 import { Beneficiario } from '../models/beneficiario';
 
-import Swal from 'sweetalert2';
+ 
 
 
 
@@ -31,14 +31,47 @@ export class CumpleComponent implements OnInit {
   public cVariable = 0;
   public textoMensaje: string;
   public textoCriterio: string;
-  public nombresBeneficirario: String;
-  public rutBeneficirario: String;
-  public sexoBeneficirario: String;
   public calificaBeneficioFijo: string;
   public calificaBeneficioVariable: string;
   public calificaTieneBeneficioPacs: string;
+// datos beneficiarios
+public rutBeneficirario: String;
+public nombresBeneficirario: String;
+public fechaNacbeneficiario: String;
+public edadBeneficiario: String;
+public sexoBeneficirario: String;
+// Datos Pension
+public dFechaPension: String;
+public iNumeroMesesCotizados: String;
+// DIPRECA
+public cBonoReconoceDIPRECA: String;
+public iCotizacionesDIPRECA = 10; 
+public nMontoPensionDIPRECA = 1.8;
+// CAPREDENA
+public cBonoReconoceCAPREDENA: String;
+public iCotizacionesCAPREDENA = 15; 
+public nMontoPensionCAPREDENA = 2.8;
+// IPS
+public cBonoReconoceIPS: String;
+public iCotizacionesIPS = 20;
+public nMontoPensionIPS = 1.7; 
+// OTROS HABERES PESOS
+public nMontoPensionMutual = 10000
+public nMontoPilarSolidario = 20000;	
+public nMontoSubsidioDependencia = 30000;	
+public nMontoSeguroDependecia = 40000;	
+public nMontoTGR = 500000;
+// DFL 3500
+public iCotizacionesAFP = 360;	
+public nMontoPensionPagadaRP = 1.8;	
+public nMontoPensionPegadaRV = 15.9;
 
-  public fValorUf: string
+
+
+public iNumeroCotizacionesIPS: String;
+public  nMontoIngreso: String;
+
+ public fValorUf: string
 
 
   constructor(
@@ -48,7 +81,7 @@ export class CumpleComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log('Entrada');
+ //   console.log('Entrada');
     this.tituloBeneficio = 'Beneficio Monto Fijo PACS';
     this.obtienePersona();
     this.obtieneElegibilidad();
@@ -60,7 +93,7 @@ export class CumpleComponent implements OnInit {
     this.activatedRoute.params.subscribe(
       params => {
         let run = params['rutBenef']
-        console.log('rut recibido Persona ', run)
+  //      console.log('rut recibido Persona ', run)
         if (run) {
           this.apiService.getPersona(run).subscribe(
             (beneficiario) => {
@@ -74,7 +107,8 @@ export class CumpleComponent implements OnInit {
               } else {
                 this.sexoBeneficirario = 'Femenino'
               };
-
+              this.edadBeneficiario = this.beneficiario.persona.edad;
+              this.fechaNacbeneficiario = this.beneficiario.persona.dFechaNacimiento;
               if (beneficiario.persona.cBeneficioPacs == 'S') {
                 this.calificaTieneBeneficioPacs = 'Si';
               }
@@ -86,7 +120,7 @@ export class CumpleComponent implements OnInit {
             err => {
               this.errores = err.error.errors as string[];
               console.error('Codigo de Error desde el Backend  err: ', err.status);
-              console.error('este es err: ', err);
+ //             console.error('este es err: ', err);
             }
           )
         }
@@ -100,31 +134,39 @@ export class CumpleComponent implements OnInit {
     this.activatedRoute.params.subscribe(
       params => {
         let rut = params['rutBenef']
-        console.log('rut recibido Pension ', rut)
+ //       console.log('rut recibido Pension ', rut)
         if (rut) {
           this.apiService.getPension(rut).subscribe(
             (pension) => {
               this.pension = pension
-              if (pension.pensionado.cResultadoBeneficioFijo.toString() == '1') {
+              console.log('datos pension : ', this.pension)
+ /*             if (pension.pensionado.cResultadoBeneficioFijo.toString() == '1') {
                 this.calificaBeneficioFijo = 'Cumple'
               } else {
                 this.calificaBeneficioFijo = 'No Cumple'
-              }
-              console.log('beneficio variable ', pension.pensionado.cResultadoBeneficioVariabe )
-              if (pension.pensionado.cResultadoBeneficioVariabe.toString() == '1') {
+              } */
+ 
+              this.calificaBeneficioFijo = 'Cumple'
+
+/*              if (pension.pensionado.cResultadoBeneficioVariabe.toString() == '1') {
                 this.calificaBeneficioVariable = 'Cumple'
               } else {
                 this.calificaBeneficioVariable = 'No Cumple'
-              }
-              console.log('calificaBeneficioVariable', this.calificaBeneficioVariable )
-
-              this.fValorUf = this.pension.pensionado.dFechaValorUF.toString();
-              console.log(this.fValorUf, 'pensjon ', this.pension)
+              } */
+              this.calificaBeneficioVariable = 'Cumple'
+               this.fValorUf = this.pension.pensionado.nValorUFUtilizado.toString();
+               this.dFechaPension = this.pension.pensionado.dFechaPension;
+               this.iNumeroMesesCotizados = this.pension.pensionado.iNumeroCotizaciones.toString();
+               this.cBonoReconoceDIPRECA = this.pension.pensionado.cBonoReconocimientoDIPRECA.toString();
+               this.cBonoReconoceCAPREDENA = this.pension.pensionado.cBonoReconocimientoCAPREDENA.toString();
+               this.cBonoReconoceIPS = this.pension.pensionado.cBonoReconocimientoIPS
+               this.iNumeroCotizacionesIPS = this.pension.pensionado.iCotizacionesIPS.toString();
+             //  this. nMontoIngreso = this.pension.pensionado.nMontoIngreso.toString();
             },
             err => {
               this.errores = err.error.errors as string[];
               console.error('Codigo de Error desde el Backend  err: ', err.status);
-              console.error('este es err: ', err);
+ //             console.error('este es err: ', err);
             }
           )
         }
@@ -137,21 +179,16 @@ export class CumpleComponent implements OnInit {
     this.activatedRoute.params.subscribe(
       params => {
         let rut = params['rutBenef']
-        console.log('rut recibido elegibilidad', rut)
+  //      console.log('rut recibido elegibilidad', rut)
         if (rut) {
           this.apiService.getElegibilidad(rut).subscribe(
             (elegibilidad) => {
-              this.elegibilidad = elegibilidad,
-                console.log(this.elegibilidad.body[0].vcNombres, this.elegibilidad.body[0].vcApellidoPaterno);
-
-              // `Cliente ${this.cliente.nombre} creado con exito!`
-
-              (this.elegibilidad.body[0].vcNombres);
+              this.elegibilidad = elegibilidad
             },
             err => {
               this.errores = err.error.errors as string[];
               console.error('Codigo de Error desde el Backend  err: ', err.status);
-              console.error('este es err: ', err);
+ //             console.error('este es err: ', err);
             }
 
           );
@@ -180,7 +217,6 @@ export class CumpleComponent implements OnInit {
           this.tituloBeneficio = ' ';
           return false
         }
-
       }
     }
 
@@ -193,5 +229,13 @@ export class CumpleComponent implements OnInit {
     console.log('si entra a esta funcion estamos listos', detalle, ' ', criterio);
     //Swal.fire('', detalle , 'warning');
   }
+
+  habilitar: boolean = true;
+  setHabilitar(): void {
+
+    this.habilitar = this.habilitar == true ? false : true;
+
+  }
+
 
 }

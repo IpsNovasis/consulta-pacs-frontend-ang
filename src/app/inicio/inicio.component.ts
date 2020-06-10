@@ -82,7 +82,7 @@ export class InicioComponent implements OnInit {
             else {
               if (this.beneficiario.persona.dFechaDefuncion.toString() != "1900-01-01") {
                 this.booleanmensaje = true;
-                this.mensajeBeneficiario = 'Estimado(a), A la fecha de esta consulta, el sistema indica que este RUN corresponde a una persona que estaría fallecida, por lo tanto no podría acceder a los beneficios del Programa de Ahorro Colectivo Solidario (PACS).'
+                this.mensajeBeneficiario = 'Estimado(a): A la fecha de esta consulta, el Servicio de Registro Civil e Identificación indica que este RUN corresponde a una persona que ha fallecido, por lo tanto no puede acceder a los beneficios del Programa de Ahorro Colectivo Solidario (PACS).Si la información es errónea, debe regularizarla en cualquier oficina del Servicio de Registro Civil e Identificación.'
                 this.router.navigate(['/inicio']);
                 Swal.fire('', this.mensajeBeneficiario, 'warning');
               }
@@ -117,7 +117,7 @@ export class InicioComponent implements OnInit {
           this.errores = err.error.errors as string[];
           if (err.status == 400) {
             console.error('Codigo de Error desde el Backend : ', err.status);
-            console.log(this.beneficiario.return.message, ' returnleano la persona');
+//            console.log(this.beneficiario.return.message, ' returnleano la persona');
           }
         }
         );
@@ -132,7 +132,7 @@ export class InicioComponent implements OnInit {
     this.rutBenef = this.rutPuntos.split('-')[0];
     this.digito = this.rutPuntos.split('-')[1];
     this.rutBenef = this.rutBenef.split('.').join("");
-    console.log('rut ', this.rutBenef, ' dv  ', this.digito, ' largo : ', this.rutBenef.length);
+ //   console.log('rut ', this.rutBenef, ' dv  ', this.digito, ' largo : ', this.rutBenef.length);
 
   }
 
@@ -163,7 +163,7 @@ export class InicioComponent implements OnInit {
 
     // Calcular Dígito Verificador en base al Módulo 11
     dvEsperado = 11 - (suma % 11);
-    console.log('dvEsperado', dvEsperado)
+ //   console.log('dvEsperado', dvEsperado)
 
     // Casos Especiales (0 y K)
     switch (dvEsperado) {
