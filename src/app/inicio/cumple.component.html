@@ -1,0 +1,112 @@
+<app-header></app-header>
+<div class="container-fluides" style="background-color:#f3efef" class="clear_fix">
+    <div class="row">
+        <!---->
+        <div class="col-md-2" style="background-color: #fff"></div>
+        <div class="col-md-8 border" style="background-color:#fff">
+
+            <div class="card-header text-dark border">
+                <p class="font-weight-bold">Información Beneficiario</p>
+
+                <div class="row">
+                    <div class="col-md-2 text-dark small font-weight-bold">Rut </div>
+                    <div class="col-md-3 small font-weight-bold"> Nombre </div>
+                    <div class="col-md-3 small font-weight-bold"> Fecha Nacimiento </div>
+                    <div class="col-md-2 small font-weight-bold"> Edad </div>
+                    <div class="col-md-2 small font-weight-bold"> Género </div>
+
+
+                    <div class="col-md-2 small">{{rutBeneficirario}}</div>
+                    <div class="col-md-3 small"> {{nombresBeneficirario}}</div>
+                    <div class="col-md-3 small">{{beneficiario.persona.dFechaNacimiento}}</div>
+                    <div class="col-md-2 small ">{{beneficiario.persona.edad}} </div>
+                    <div class="col-md-2 small">{{sexoBeneficirario}}</div>
+                </div>
+            </div>
+
+
+            <div class="card-header text-dark border">
+                <p class="font-weight-bold">Información Previsional</p>
+
+                <div class="row">
+                    <div class="col-md-2 small font-weight-bold">Fecha Pensión</div>
+                    <div class="col-md-2 small font-weight-bold"> Meses Cotizados </div>
+                    <div class="col-md-2 small font-weight-bold"> Bonos Dipreca</div>
+                    <div class="col-md-2 small font-weight-bold"> Bono Capredena</div>
+                    <div class="col-md-2 small font-weight-bold"> Cotizaciones</div>
+                    <div class="col-md-2 small font-weight-bold"> Monto Ingreso UF </div>
+
+                    <div class="col-md-2 text-left small">{{pension.pensionado.dFechaPension}}</div>
+                    <div class="col-md-2 text-center small">{{pension.pensionado.iNumeroMesesCotizados}}</div>
+                    <div class="col-md-2 text-center small">{{pension.pensionado.cBonoReconoceDIPRECA}}</div>
+                    <div class="col-md-2 text-center small">{{pension.pensionado.cBonoReconoceCAPREDENA}}</div>
+                    <div class="col-md-2 text-center small">{{pension.pensionado.iNumeroCotizacionesIPS}}</div>
+                    <div class="col-md-2 text-center small">{{pension.pensionado.nMontoIngreso}}</div>
+
+                </div>
+            </div>
+
+            <div class="card-header text-dark border">
+                <p class="font-weight-bold">Beneficios</p>
+
+                <div class="row">
+                    <div class="col-md-4 text-dark text-center small font-weight-bold">Beneficio Monto Fijo PACS</div>
+                    <div class="col-md-4 text-center small font-weight-bold">Beneficio por Años Cotizados</div>
+                    <div class="col-md-4 text-center small font-weight-bold">¿Tiene Beneficio PACS?</div>
+                    <div class="col-md-4 text-center small">{{calificaBeneficioFijo}}</div>
+                    <div class="col-md-4 text-center small">{{calificaBeneficioVariable}}</div>
+                    <div class="col-md-4 text-center small">{{calificaTieneBeneficioPacs}}</div>
+                </div>
+            </div>
+            <div class="card-header text-dark">
+                <h5 class="text-center">Resultado de Elegibilidad</h5>
+            </div>
+
+
+            <div class="card-header text-dark">
+                <h6>Beneficio Monto Fijo PACS</h6>
+            </div>
+
+            <div *ngFor="let item of elegibilidad.body">
+                <div *ngIf="item.iIDBeneficio == 1 ">
+                    <ul uk-accordion>
+                        <li class="uk-close">
+                            <a class="uk-accordion-title  text-center" style="background-color:#fcfafa" href="#">
+                                <p class="mb-0 text-dark ">
+                                    {{item.vcCriterioEvaluado}}</p>
+                            </a>
+                            <div class="uk-accordion-content">
+                                <p class="text-justify text-dark">{{item.vcDetalleMensaje}}</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card-header text-dark">
+                <h6>Beneficio por Año Cotizado</h6>
+            </div>
+
+            <div *ngFor="let item of elegibilidad.body">
+                <div *ngIf="item.iIDBeneficio == 2 ">
+                    <ul uk-accordion>
+                        <li class="uk-close">
+                            <a class="uk-accordion-title  text-center" style="background-color:#fcfafa" href="#">
+                                <p class="mb-0 text-dark">
+                                    {{item.vcCriterioEvaluado}}</p>
+                            </a>
+                            <div class="uk-accordion-content">
+                                <p class="text-justify text-dark">{{item.vcDetalleMensaje}}</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-2" style="background-color:#ddf126"></div>
+
+
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

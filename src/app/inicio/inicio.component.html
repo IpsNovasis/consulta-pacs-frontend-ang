@@ -1,0 +1,101 @@
+<h1 class="text-center ips-logo-sm">
+    <a href="">
+        IPS en Línea
+    </a>
+</h1>
+<h2 class="text-center bajada-logo" style="font-size: 22.2918px;"> </h2>
+<div clas="row margin-top-sm-7">
+    <div clas=" row ">
+        <div class="col-xs-10 col-sm-6 col-md-4 offset-md-4 offset-sm-3 offset-xs-1 relative ">
+            <h2 class="text-center titulo-light font-size-big" style="font-size: 28px; ">
+                <span>Programa de Ahorro Colectivo Solidario</span>
+            </h2>
+        </div>
+    </div>
+    <div class="row ">
+        <!--div class="d-flex justify-content-center "-->
+
+        <div
+            class="col-xs-10 col-sm-6 col-md-4 offset-md-4 offset-sm-3 offset-xs-1 relative margin-top-30 modulo-consulta ">
+            <!--div class="col-md-12 "-->
+            <div id="err-message " class="alert alert-danger alert-dismissible fade in " role="alert "
+                style="display:none; ">
+                <button type="button " class="close " data-dismiss="alert " aria-label="Close "><span
+                        aria-hidden="true " style="font-size: 18.7359px; "></span></button>
+            </div>
+
+            <h6 class="margin-top-0 text-center  text-danger ">Ingresar RUN y SERIE</h6>
+            <div class="alert alert-danger"  *ngIf="booleanmsgben">
+                    {{  mensajeBeneficiario }}
+            </div>
+            <form #inicioForm="ngForm" class="form-horizontal">
+                <!--  <div class="form-group "> -->
+                <label>RUN</label>
+                <div class="form-group row ">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <input placeholder="Ej. 11.222.333-K " type="text" class="form-control" maxlength="12"
+                            [(ngModel)]="login.rut" name="rut" #rut="ngModel" required (keyup)="formateaRut(rut.value)"
+                            value="{{rutPuntos}}">
+                        <div class="alert alert-danger" *ngIf="rut.invalid && rut.touched">
+                            <div *ngIf="rut.errors.required">
+                                RUN es requerido
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lightbox" [ngClass]="{'lightbox': disableMensaje, 'lightbox-disable': !disableMensaje} "><a
+                        href="javascript:; " class="cerrar " title="cerrar lightbox "><i
+                            class="fa fa-times-circle "></i></a>
+                    <div>
+                        <section class="modal-error ">
+                            <h1 class="titulo-modal ">Se encontraron los siguientes errores:</h1>
+                            <ul>
+                                <li>
+                                    <!--Estimado(a), El RUN o n&uacute;mero de serie ingresado no corresponde, favor verificar informaci&oacute;n y reintentar.-->
+                                    Segun nuestros registros, el run ingresado corresponde a un fallecido
+                                </li>
+                            </ul>
+                        </section><br>
+                        <!--
+                        <button type="button " class="btn btn-primary "
+                            style="margin: 0.5em auto; display: block; " (click)="desactivaModal() ">Aceptar</button>
+                 -->
+                    </div>
+                </div>
+                <div class="carnet">
+                    <label>SERIE o NUMERO DE DOCUMENTO&nbsp;</label><img src="../../assets/img/icon_info.png "
+                        alt="Información " width="20 " height="20 ">
+                    <div class="carnet_image ">
+                        <img src="../../assets/img/carnet.png " width="300 " height="178 " alt="Carnet ">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 ">
+                        <input placeholder="Ej. A039023994 " type="text " class="form-control val-rut no-memory "
+                            maxlength="8" [(ngModel)]="login.serie" name="serie" #serie="ngModel" required>
+                        <p class="mensaje-error val-rut "></p>
+                        <div class="alert alert-danger" *ngIf="serie.invalid && serie.touched">
+                            <div *ngIf="serie.errors.required">
+                                SERIE O Numero de Documento es Requerido
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <!-- inicio -->
+                    <div class="col-xs-12 style=" text-align: right>
+                        <button class="btn btn-primary col-xs-12" (click)="validaLogin()"
+                            [disabled]="!inicioForm.form.valid">
+                            <a>Autenticar</a>
+                        </button>
+                    </div>
+                </div> <!-- hasta aca-->
+                <!--    </div>-->
+            </form>
+
+        </div>
+        <!--/div-->
+        <!--/div-->
+    </div>
+</div>

@@ -1,0 +1,61 @@
+.carnet:hover > .carnet_image {
+    display:block;
+}
+
+.carnet_image{ 
+    position: fixed;
+    border-color: #676a6b !important;        
+    display:none; 
+    left: 45%; 
+    top: 29%;
+    border:solid;
+    border-width: 3px !important;
+    border-radius:4px;
+    z-index: 1;
+}    
+
+p.mensaje-error {
+    color: #ea6146;
+    font-size: 14px;
+    margin-left: 12px;
+    margin-top: 3px;
+    display: block;
+}
+
+
+.lightbox-contenedor > .wrapper .lightbox {
+    vertical-align: middle;
+    display: inline-block;
+}
+.titulo-modal{
+    font-size: 20px;
+}
+
+.lightbox-disable {
+    display: none;
+}
+.lightbox {
+
+    vertical-align: middle;
+    display: inline-block;
+    color: white;
+    background-color: #003463 !important;
+    border-radius: 3px;
+    text-align: left;
+    height: 40%;
+    width: 34%;
+    max-height: 98%;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 0.5em;
+    position: fixed;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+    left: 33%; 
+    top: 35%;
+    z-index: 1;
+}
+
+.modal-error {
+    padding: 1em 1.6em;
+    
+}

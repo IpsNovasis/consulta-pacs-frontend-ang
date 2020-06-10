@@ -1,0 +1,303 @@
+                                    /* You can add global styles to this file, and also import other style files */
+                                    /*html {
+    position: relative;
+    min-height: 100%;
+}
+body{
+    margin-bottom: 60px;
+    background-color: #00466c;
+	color: #fff;
+}
+.wrap{
+
+    padding-bottom: 60px;;
+}*/
+                                    /*h1.ips-logo-sm {
+    background-image: url(https://s3-sa-east-1.amazonaws.com/cdn.ips-enlinea.cl/img/IPS-logo-sm.png);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    text-indent: -10000px;
+    height: 20px;
+    width: 125px;
+    margin: 0px auto 3px;
+}
+*/
+                                    /*.f-gradiant {
+	background-image: none;
+	background-size: cover;
+	background-position: 40% center;
+	background-color: #366aac;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background: url(./assets/img/bg_frios.png) 40% center/cover fixed no-repeat #205b87;
+}*/
+                                    /*
+.btn-accion, .btn-accion:focus {
+	color: #fff;
+	border-top: 1px solid #fb6372;
+	border-bottom: 2px solid #c02939;
+	background: #fa364a;
+	background: -moz-linear-gradient(top, rgba(250, 54, 74, 1) 0%, rgba(239, 52, 73, 1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(250, 54, 74, 1)), color-stop(100%, rgba(239, 52, 73, 1)));
+	background: -webkit-linear-gradient(top, rgba(250, 54, 74, 1) 0%, rgba(239, 52, 73, 1) 100%);
+	background: -o-linear-gradient(top, rgba(250, 54, 74, 1) 0%, rgba(239, 52, 73, 1) 100%);
+	background: -ms-linear-gradient(top, rgba(250, 54, 74, 1) 0%, rgba(239, 52, 73, 1) 100%);
+	background: linear-gradient(to bottom, rgba(250, 54, 74, 1) 0%, rgba(239, 52, 73, 1) 100%);/*filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#fa364a', endColorstr='#ef3449', GradientType=0);*/
+                                    /*}*/
+                                    
+                                    .btn-ingreso,
+                                    .btn-ingreso:focus {
+                                        color: #fff;
+                                        border-top: 1px solid #40acda;
+                                        border-bottom: 2px solid #328eb5;
+                                        background: #40acda;
+                                    }
+                                    
+                                    .btn-ingreso:hover {
+                                        color: #fff;
+                                        border-top: 1px solid #40acda;
+                                        border-bottom: 2px solid #2884ab;
+                                        background: #34a3d2;
+                                    }
+                                    
+                                    .titulo-registro {
+                                        font-size: 12px;
+                                    }
+                                    /*.modulo-consulta {
+	background-color: #f7f4f4;
+	padding: 1.5em 2em;
+	border-radius: 3px;
+    color: #0b3862;
+    width:40%;
+}
+.modulo-consulta .formulario-login-facilita label {
+	color: #0b3862;
+	margin-bottom: 15px !important;
+	font-weight: 500;
+}*/
+                                    
+                                    .margin-top-30 {
+                                        margin-top: 30px;
+                                    }
+                                    
+                                    .color-1 {
+                                        background-color: #1b94e4;
+                                        height: 185px;
+                                        margin-bottom: 15px;
+                                        overflow: hidden;
+                                    }
+                                    /*.flowtype {
+    overflow: hidden;
+}
+
+.flowtype {
+    position: relative;
+    margin: 0 auto;
+}
+
+.relative {
+    position: relative;
+}*/
+                                    
+                                    .caluga-info {
+                                        max-width: 700px;
+                                        margin: auto !important;
+                                        text-align: left !important;
+                                    }
+                                    
+                                    .sin-beneficios .color-1 .text-center img {
+                                        width: 25%;
+                                        margin: auto;
+                                        padding-right: 1em;
+                                        max-width: 150px;
+                                    }
+                                    
+                                    .sin-beneficios a.full-link h3.mod1 {
+                                        position: relative;
+                                        margin: 0;
+                                        top: -10px;
+                                    }
+                                    
+                                    .sin-beneficios a.full-link {
+                                        display: block;
+                                        position: relative;
+                                    }
+                                    
+                                    .sin-beneficios .color-1.relative {
+                                        height: auto !important;
+                                        padding-right: 40px;
+                                        padding-left: 40px;
+                                        width: 40%;
+                                        min-height: 400px;
+                                    }
+                                    
+                                    img,
+                                    .img-responsive {
+                                        display: inline;
+                                    }
+                                    
+                                    a.full-link {
+                                        color: #fff;
+                                        position: absolute;
+                                        width: 100%;
+                                        height: 100%;
+                                        top: 0;
+                                        left: 0;
+                                        text-decoration: none;
+                                        z-index: 10;
+                                        filter: alpha(opacity=100);
+                                    }
+                                    
+                                    .text-field {
+                                        border-top: 1px solid white;
+                                        padding-top: 10px;
+                                        height: 1px;
+                                    }
+                                    
+                                    .resultado-beneficios .color-2 .text-center img {
+                                        width: 25%;
+                                        margin: auto;
+                                        padding-right: 1em;
+                                        max-width: 150px;
+                                    }
+                                    
+                                    .resultado-beneficios a.full-link h3.mod1 {
+                                        position: relative;
+                                        margin: 0;
+                                        top: -10px;
+                                    }
+                                    
+                                    .resultado-beneficios a.full-link {
+                                        display: block;
+                                        position: relative;
+                                    }
+                                    
+                                    .resultado-beneficios .color-2.relative {
+                                        height: auto !important;
+                                        padding-right: 40px;
+                                        padding-left: 40px;
+                                        width: 40%;
+                                        min-height: 400px;
+                                    }
+                                    
+                                    .color-2 {
+                                        background-color: #1b94e4;
+                                        height: 185px;
+                                        margin-bottom: 15px;
+                                        overflow: hidden;
+                                    }
+                                    
+                                    .ok {
+                                        margin: 0;
+                                        padding: 0px 0 0px 30px;
+                                        list-style: none;
+                                        background-image: url("assets/img/icon_ok.png");
+                                        background-repeat: no-repeat;
+                                        background-position: left center;
+                                        background-size: 26px;
+                                    }
+                                    
+                                    .warn {
+                                        margin: 0;
+                                        padding: 0px 0 0px 30px;
+                                        list-style: none;
+                                        background-image: url("assets/img/icon_warn.png");
+                                        background-repeat: no-repeat;
+                                        background-position: left center;
+                                        background-size: 26px;
+                                    }
+                                    
+                                    .error {
+                                        margin: 0;
+                                        padding: 0px 0 0px 30px;
+                                        list-style: none;
+                                        background-image: url("assets/img/icon_error.png");
+                                        background-repeat: no-repeat;
+                                        background-position: left center;
+                                        background-size: 26px;
+                                    }
+                                    
+                                    .manejo-lista {
+                                        display: flex;
+                                        flex-direction: row;
+                                        align-items: center;
+                                    }
+                                    
+                                    @media (max-width: 801px) {
+                                        .formulario-apsi .tab-pasos {
+                                            margin: 0;
+                                            padding: 15px;
+                                        }
+                                        .nav-tabs.nav-justified>li>a {
+                                            border-bottom: 1px solid #00466C !important;
+                                        }
+                                        .margin-top-sm-0-5 {
+                                            margin-top: 0.5em !important;
+                                        }
+                                        .margin-top-sm-1 {
+                                            margin-top: 1em !important;
+                                        }
+                                        .margin-top-sm-1-5 {
+                                            margin-top: 1.5em !important;
+                                        }
+                                        .margin-top-sm-2 {
+                                            margin-top: 2em !important;
+                                        }
+                                        .margin-top-sm-2-5 {
+                                            margin-top: 2.5em !important;
+                                        }
+                                        .margin-top-sm-3 {
+                                            margin-top: 3em !important;
+                                        }
+                                        .margin-top-sm-3-5 {
+                                            margin-top: 3.5em !important;
+                                        }
+                                        .margin-top-sm-4 {
+                                            margin-top: 4em !important;
+                                        }
+                                        .margin-top-sm-4-5 {
+                                            margin-top: 4.5em !important;
+                                        }
+                                        .margin-top-sm-5 {
+                                            margin-top: 5em !important;
+                                        }
+                                        .margin-top-sm-5-5 {
+                                            margin-top: 5.5em !important;
+                                        }
+                                        .margin-top-sm-6 {
+                                            margin-top: 6em !important;
+                                        }
+                                        .margin-top-sm-6-5 {
+                                            margin-top: 6.5em !important;
+                                        }
+                                        .margin-top-sm-7 {
+                                            margin-top: 7em !important;
+                                        }
+                                        .margin-top-sm-7-5 {
+                                            margin-top: 7.5em !important;
+                                        }
+                                        .margin-top-sm-8 {
+                                            margin-top: 8em !important;
+                                        }
+                                        .margin-top-sm-8-5 {
+                                            margin-top: 8.5em !important;
+                                        }
+                                        .margin-top-sm-9 {
+                                            margin-top: 9em !important;
+                                        }
+                                        .margin-top-sm-9-5 {
+                                            margin-top: 9.5em !important;
+                                        }
+                                    }
+                                    
+                                    .visibilidadMoverMenuLateral {
+                                        left: 15.625em !important;
+                                        transition: left 300ms ease 0s !important;
+                                    }
+                                    
+                                    .visibilidadMenuLateral {
+                                        visibility: visible !important;
+                                    }
+
+                                    

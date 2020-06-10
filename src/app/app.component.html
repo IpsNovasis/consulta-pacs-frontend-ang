@@ -1,0 +1,94 @@
+<!--app-header></app-header-->
+<!--div class="container my-3 wrap" -->
+<!--pb-5"> -->
+
+<router-outlet></router-outlet>
+<!--Div enfocado en el manejo de inclusividad y telefono-->
+<div class="col-xs-12 col-sm-2 col-md-2 col-lg-1 sidebar menu-lateral flowtype " [style.left]="disableMenuLateral? '15.625em' : '0px' " style="transition: left 300ms ease 0s;">
+    <ul class="nav nav-sidebar">
+        <li class="text-center ml-inclusividad" (click)="menuLateral()">
+            <a data-id="menu-link-1" [ngClass]="{ 'active': disableMenuLateral, '': !disableMenuLateral}">
+                <img src="https://s3-sa-east-1.amazonaws.com/cdn.ips-enlinea.cl/img/menu-lateral/inclusividad.svg">
+                <span class="text-inclusividad">Inclusividad</span>
+            </a>
+        </li>
+        <li class="text-center ml-callcenter">
+            <a href="javascript:;" class="callcenter">
+                <img src="https://s3-sa-east-1.amazonaws.com/cdn.ips-enlinea.cl/img/menu-lateral/contacto.svg" alt="Callcenter">
+                <span>Contacto</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<!--Div visualizacion lateral de inclusividad-->
+<div id="inclusividad" class="parent panel " role="navigation" [ngClass]="{ 'parent panel visibilidadMenuLateral': disableMenuLateral, 'parent panel': !disableMenuLateral}" style="position: fixed; top: 0px; bottom: 0px; height: 100%; left: 0px; width: 15.625em; transition: left 300ms ease 0s;">
+    <div class="child contRelative menu-inclusividad">
+        <a class="btn_cerrar cerrar" (click)="menuLateral()">
+            <img src="https://s3-sa-east-1.amazonaws.com/cdn.ips-enlinea.cl/img/cerrar.svg" class="svg-cerrar" alt="Cerrar menú">
+            <small>cerrar</small>
+        </a>
+        <div class="menu-inclusividad-titulo">
+            <img class="icono_accesibilidad" src="https://s3-sa-east-1.amazonaws.com/cdn.ips-enlinea.cl/img/accesibilidad2.svg" alt="icono de accesibilidad">
+            <h4 class="menu-titulo">Menú de<br>Inclusividad</h4>
+        </div>
+        <div class="modulo-accesibilidad">
+            <p class="texto-inclusividad no-margen">Aumente o disminuya el tamaño de las letras de este sitio.</p>
+            <div>
+                <a type="submit" class="btn_zoom" href="javascript:decreaseFont();"><img src="https://s3-sa-east-1.amazonaws.com/cdn.ips-enlinea.cl/img/disminuir.svg" alt="disminuir tamaÃ±o de letras"></a>
+                <a type="submit" class="btn_zoom" href="javascript:increaseFont();"><img src="https://s3-sa-east-1.amazonaws.com/cdn.ips-enlinea.cl/img/aumentar.svg" alt="aumentar tamaÃ±o de letras"></a>
+            </div>
+        </div>
+        <div class="modulo-accesibilidad">
+            <div class="inclusividad-check en-linea">
+                <input type="checkbox" name="filter" value="checkbox" class="filter-check en-linea">
+                <div class="texto-inclusividad en-linea texto-grises"><span class="fa fa-spinner" style="display: none;"></span>
+                    <span>Vea este sitio en tonos grises.</span>
+                </div>
+                <div class="en-linea">
+                    <img class="grises en-linea" src="https://s3-sa-east-1.amazonaws.com/cdn.ips-enlinea.cl/img/grises.svg" alt="tonos grises">
+                </div>
+            </div>
+        </div>
+        <div class="modulo-accesibilidad">
+            <div class="clearfix"></div>
+            <div class="inclusividad-check">
+                <input type="checkbox" name="subrayado" value="checkbox" class="underline-check en-linea">
+            </div>
+            <div class="texto-inclusividad en-linea">
+                <span>Activar vínculos subrayados.</span>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="restaurar">
+            <a href="javascript:reload();" type="submit" class="btn_restaurar" id="restaurar">
+                <img class="restaurar-porte" src="https://s3-sa-east-1.amazonaws.com/cdn.ips-enlinea.cl/img/restaurar.png" alt="restaurar valores del sitio">
+                <span> Restaurar Sitio</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<div class="encuesta modal fade modal-xl" tabindex="-1" id="modalHomeIps" role="dialog" style="display: none;">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content modal-xl">
+            <div class="modal-header ">
+                <div class="row" style="width: 100%;">
+                    <h4 class="modal-title" style="width:100%;">Tu opinión importa</h4>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="padding: 1rem 1rem;margin: -1rem -1rem -1rem auto;"><span aria-hidden="true">×</span></button>
+            </div>
+            <div id="body_modal" class="modal-body modal-xl">
+                <div class="contenedor-ifr"><iframe class="estatico-iframe" name="e-encuesta" src="https://www.e-encuesta.com/s/9pA0RtzXtwETqzmgPaKCGg/" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe></div>
+            </div>
+            <div class="modal-footer modal-xl">
+                <div class="row'" style="width:100% !important;">
+                    <div class="col-lx-12 text-center"><a href="#" class="btn btn-default" data-dismiss="modal" style="text-decoration: none;">Cerrar ventana</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="lnk-encuesta"><img src="https://s3-sa-east-1.amazonaws.com/cdn.ips-enlinea.cl/img/pestana-encuesta-100x100-2.png" class="btn-encuestas" data-toggle="modal" data-target="#modalHomeIps"></div>
+<!--/div-->
+<!--app-footer></app-footer-->
